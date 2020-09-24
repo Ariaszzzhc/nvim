@@ -48,8 +48,12 @@ Plug 'liuchengxu/vista.vim'
 
 Plug 'liuchengxu/vim-which-key'
 Plug 'junegunn/goyo.vim'
-Plug 'mg979/vim-xtabline'
+" Plug 'mg979/vim-xtabline'
 Plug 'brooth/far.vim'
+
+" Sider menu
+Plug 'Shougo/defx.nvim'
+
 
 " Smooth scroll
 Plug 'psliwka/vim-smoothie'

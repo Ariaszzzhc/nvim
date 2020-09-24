@@ -32,6 +32,7 @@ set updatetime=300
 set timeoutlen=100
 set clipboard=unnamedplus
 set incsearch
+set list
 set listchars=tab:\|\ ,trail:▫,space:·,nbsp:_
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o

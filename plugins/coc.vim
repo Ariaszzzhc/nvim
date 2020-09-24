@@ -1,4 +1,4 @@
-let g:coc_globale_extensions = [
+let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-actions',
   \ 'coc-sh',
@@ -183,3 +183,8 @@ let g:coc_snippet_prev = '<c-k>'
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+" Prettier setting
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+nnoremap <C-M-f> :Prettier<CR>
