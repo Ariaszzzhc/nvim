@@ -4,4 +4,4 @@ plugged/
 sessions/
 autoload/
 tmp/
-
+*.bak

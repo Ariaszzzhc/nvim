@@ -34,5 +34,6 @@ set clipboard=unnamedplus
 set incsearch
 set list
 set listchars=tab:\|\ ,trail:▫,space:·,nbsp:_
+set noshowmode
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o

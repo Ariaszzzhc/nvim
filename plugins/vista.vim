@@ -1,4 +1,3 @@
-noremap <C-m> :Vista<CR>
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista_default_executive = 'coc'
 " let g:vista_fzf_preview = ['right:50%']
@@ -8,3 +7,5 @@ let g:vista#renderer#icons = {
 \   "variable": "\uf71b",
 \  }
 let g:vista_sidebar_width = 60
+
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()

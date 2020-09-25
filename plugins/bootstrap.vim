@@ -25,14 +25,18 @@ Plug 'jiangmiao/auto-pairs'
 " Intellisense
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
+Plug 'josa42/vim-lightline-coc'
 Plug 'kevinhwang91/rnvimr'
 Plug 'junegunn/fzf.vim'
+Plug 'antoinemadec/coc-fzf'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh'  }
 
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3' }
+Plug 'itchyny/vim-gitbranch'
 Plug 'cohama/agit.vim'
 
 Plug 'voldikss/vim-floaterm'
@@ -48,7 +52,7 @@ Plug 'liuchengxu/vista.vim'
 
 Plug 'liuchengxu/vim-which-key'
 Plug 'junegunn/goyo.vim'
-" Plug 'mg979/vim-xtabline'
+Plug 'mg979/vim-xtabline', { 'commit': '35466f9' }
 Plug 'brooth/far.vim'
 
 " Sider menu

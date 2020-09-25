@@ -1,35 +1,36 @@
 set rtp+=/usr/bin/fzf
+set rtp+=/usr/local/bin/fzf
 set rtp+=/usr/local/opt/fzf
 
-" noremap <silent> <C-p> :Files<CR>
-noremap <silent> <C-p> :Leaderf file<CR>
-noremap <silent> <C-f> :Rg<CR>
-noremap <silent> <C-h> :History<CR>
-" noremap <C-t> :BTags<CR>
-noremap <silent> <C-l> :Lines<CR>
-noremap <silent> <C-w> :Buffers<CR>
-noremap <leader>; :History:<CR>
+" fzf config
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6} }
+let g:fzf_preview_window = 'right:50%'
 
-let g:fzf_preview_window = 'right:60%'
-let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+let g:fzf_history_dir = '~/.local/share/fzf-history'
 
-function! s:list_buffers()
-  redir => list
-  silent ls
-  redir END
-  return split(list, "\n")
-endfunction
+let $FZF_DEFAULT_OPTS= $FZF_DEFAULT_OPTS . '--layout=reverse-list'
 
-function! s:delete_buffers(lines)
-  execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
-endfunction
+" Customize fzf colors to match your color scheme
+" - fzf#wrap translates this to a set of `--color` options
+let g:fzf_colors = 
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
-command! BD call fzf#run(fzf#wrap({
-  \ 'source': s:list_buffers(),
-  \ 'sink*': { lines -> s:delete_buffers(lines)  },
-  \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept' 
-  \}))
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
-noremap <c-d> :BD<CR>
-
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8  }  }
+noremap <silent> <C-p> :CocFzfList commands<CR>
+noremap <silent> R :GFiles<CR>
+noremap <silent> <C-m> :Vista finder coc<CR>
