@@ -14,13 +14,21 @@ local function add_table(a, b)
   table.insert(a, b)
 end
 
+local icon_styles = {
+  left = "",
+  right = " ",
+  main_icon = "  ",
+  vi_mode_icon = " ",
+  position_icon = " ",
+}
+
 local diagnostics = {
   error = {
     provider = "diagnostic_errors",
     enabled = function()
       return lsp.diagnostics_exist(lsp_severity.ERROR)
     end,
-    icon = " ",
+    icon = "  ",
   },
 
   warning = {
@@ -28,32 +36,44 @@ local diagnostics = {
     enabled = function()
       return lsp.diagnostics_exist(lsp_severity.WARN)
     end,
-    icon = " ",
-  }
+    icon = "  ",
+  },
+
+  hint = {
+    provider = "diagnostic_hints",
+    enabled = function()
+         return lsp.diagnostics_exist(lsp_severity.HINT)
+    end,
+    icon = "  ",
+  },
+
+  info = {
+    provider = "diagnostic_info",
+    enabled = function()
+      return lsp.diagnostics_exist(lsp_severity.INFO)
+    end,
+    icon = "  ",
+  },
 }
 
 local diff = {
   add = {
     provider = "git_diff_added",
-    icon = " ",
+    icon = " ",
     enabled = hide_in_width,
   },
 
   change = {
     provider = "git_diff_changed",
-    icon = " ",
+    icon = "  ",
     enabled = hide_in_width,
   },
 
   remove = {
     provider = "git_diff_removed",
-    icon = " ",
+    icon = "  ",
     enabled = hide_in_width,
   },
-}
-
-local mode = {
-	provider = "vi_mode",
 }
 
 local filetype = {
@@ -69,7 +89,11 @@ local filetype = {
 
 local branch = {
 	provider = "git_branch",
-	icon = "",
+	icon = "  ",
+
+  right_sep = {
+    str = icon_styles.right,
+  }
 }
 
 local location = {
@@ -103,6 +127,17 @@ local encoding = {
   provider = "file_encoding"
 }
 
+local mode = {
+  provider = icon_styles.vi_mode_icon
+}
+
+local main = {
+  provider = icon_styles.main_icon,
+  right_sep = {
+    str = icon_styles.right,
+  }
+}
+
 local cpns = {
   active = {},
   inactive = {},
@@ -112,9 +147,12 @@ local left = {}
 local middle = {}
 local right = {}
 
+add_table(left, main)
 add_table(left, branch)
 add_table(left, diagnostics.error)
 add_table(left, diagnostics.warning)
+add_table(left, diagnostics.hint)
+add_table(left, diagnostics.info)
 add_table(left, mode)
 
 add_table(right, diff.add)
