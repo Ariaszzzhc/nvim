@@ -1,33 +1,18 @@
-vim.g.material_style = "darker"
-local status_ok, material = pcall(require, "material")
-
-if status_ok then
-  material.setup({
-    contrast = {
-      sidebars = false,
-      floating_windows = false,
-      line_numbers = false,
-      sign_column = false,
-      cursor_line = false,
-      non_current_windows = false,
-      popup_menu = false,
-    },
-
-    italics = {
-      comments = true,
-      keywords = false,
-      functions = false,
-      strings = false,
-      variables = false,
-    },
-
-    high_visibility = {
-      lighter = true,
-      darker = true,
-    },
-    sync_loading = true,
-  })
+-- set the global theme, used at various places like theme switcher, highlights
+if not vim.g["mirana_theme"] then
+  vim.g["mirana_theme"] = "onedark"
 end
 
-vim.cmd "colorscheme material"
+local status_ok, base16 = pcall(require, "base16")
 
+local theme = vim.g["mirana_theme"]
+
+if status_ok then
+  -- first load the base16 theme
+  base16(base16.themes(theme), true)
+
+  -- unload to force reload
+  package.loaded["colors.highlights" or false] = nil
+  -- then load the highlights
+  require "colors.highlights"
+end

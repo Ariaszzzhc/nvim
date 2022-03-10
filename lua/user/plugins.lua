@@ -60,8 +60,9 @@ return packer.startup(function(use)
   use "folke/which-key.nvim"
 
   -- Colorschemes
-  use "marko-cerovac/material.nvim"
+  -- use "marko-cerovac/material.nvim"
   -- use "lunarvim/darkplus.nvim"
+  use "NvChad/nvim-base16.lua"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
