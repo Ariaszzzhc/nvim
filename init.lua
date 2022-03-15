@@ -19,6 +19,7 @@ require "user.indentline"
 require "user.alpha"
 require "user.whichkey"
 require "user.autocommands"
+require "user.autosave"
 
 if vim.g["neovide"] then
   require "user.neovide"

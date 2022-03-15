@@ -64,6 +64,9 @@ return packer.startup(function(use)
   -- use "lunarvim/darkplus.nvim"
   use "NvChad/nvim-base16.lua"
 
+  -- Autosave
+  use "Pocco81/AutoSave.nvim"
+
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
