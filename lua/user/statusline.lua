@@ -98,20 +98,50 @@ local diagnostics = {
 local diff = {
   add = {
     provider = "git_diff_added",
-    icon = " ",
+    icon = "  ",
     enabled = hide_in_width,
+    hl = {
+      fg = colors.grey_fg2,
+      bg = colors.statusline_bg
+    },
   },
 
   change = {
     provider = "git_diff_changed",
     icon = "  ",
     enabled = hide_in_width,
+    hl = {
+      fg = colors.grey_fg2,
+      bg = colors.statusline_bg
+    },
   },
 
   remove = {
     provider = "git_diff_removed",
     icon = "  ",
     enabled = hide_in_width,
+    hl = {
+      fg = colors.grey_fg2,
+      bg = colors.statusline_bg
+    },
+  },
+}
+
+local treesitter = {
+  provider = function ()
+    local buf = vim.api.nvim_get_current_buf()
+    if next(vim.treesitter.highlighter.active[buf]) then
+      return "   "
+    end
+
+    return ""
+  end,
+
+  enabled = hide_in_width,
+
+  hl = {
+    fg = colors.green,
+    bg = colors.statusline_bg,
   },
 }
 
@@ -172,7 +202,10 @@ local lsp_progress = {
     return ""
   end,
 
-  hl = { fg = colors.green },
+  hl = {
+    fg = colors.green,
+    bg = colors.statusline_bg,
+  },
   enabled = hide_in_width
 }
 
@@ -319,6 +352,9 @@ local right = {}
 add_table(left, main)
 add_table(left, filetype)
 add_table(left, branch)
+add_table(left, diff.add)
+add_table(left, diff.change)
+add_table(left, diff.remove)
 add_table(left, diagnostics.error)
 add_table(left, diagnostics.warning)
 add_table(left, diagnostics.hint)
@@ -326,6 +362,7 @@ add_table(left, diagnostics.info)
 
 add_table(middle, lsp_progress)
 
+add_table(right, treesitter)
 add_table(right, lsp_icon)
 add_table(right, spaces)
 add_table(right, encoding)
