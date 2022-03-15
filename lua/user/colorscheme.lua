@@ -1,18 +1,25 @@
 -- set the global theme, used at various places like theme switcher, highlights
-if not vim.g["mirana_theme"] then
-  vim.g["mirana_theme"] = "onedark"
+local colorscheme = function(theme)
+  if not theme then
+    theme = "gruvchad"
+  end
+
+  vim.g["mirana_theme"] = theme
+
+  local status_ok, base16 = pcall(require, "base16")
+
+  if status_ok then
+    -- first load the base16 theme
+    base16(base16.themes(theme), true)
+
+    -- unload to force reload
+    package.loaded["colors.highlights" or false] = nil
+    -- then load the highlights
+    require "colors.highlights"
+  end
 end
 
-local status_ok, base16 = pcall(require, "base16")
+colorscheme()
+print(vim.g["mirana_theme"])
 
-local theme = vim.g["mirana_theme"]
-
-if status_ok then
-  -- first load the base16 theme
-  base16(base16.themes(theme), true)
-
-  -- unload to force reload
-  package.loaded["colors.highlights" or false] = nil
-  -- then load the highlights
-  require "colors.highlights"
-end
+return colorscheme

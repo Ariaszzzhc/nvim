@@ -14,7 +14,8 @@ local function reload_theme(theme)
 
   vim.g["mirana_theme"] = theme
 
-  require("user.colorscheme")
+  local colors = require("user.colorscheme")
+  colors(theme)
 
   if not reload_plugin {
     "user.bufferline",
