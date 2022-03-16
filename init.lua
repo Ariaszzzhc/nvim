@@ -23,6 +23,7 @@ require "user.autosave"
 require "user.todo"
 require "user.spell"
 require "user.zen"
+require "user.dap"
 
 if vim.g["neovide"] then
   require "user.neovide"

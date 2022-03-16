@@ -106,6 +106,15 @@ return packer.startup(function(use)
   -- Zen
   use "folke/zen-mode.nvim"
 
+  -- Debug Adapter Protocol
+  use "mfussenegger/nvim-dap"
+  use "nvim-telescope/telescope-dap.nvim"
+  use "theHamsta/nvim-dap-virtual-text"
+  use "Pocco81/DAPInstall.nvim"
+
+  -- Editorconfig
+  use "gpanders/editorconfig.nvim"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
