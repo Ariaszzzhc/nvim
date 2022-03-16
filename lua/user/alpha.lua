@@ -33,6 +33,7 @@ local function footer()
 	-- local fortune = handle:read("*a")
 	-- handle:close()
 	-- return fortune
+  -- local total_plugins = vim.cmd [[lua vim.tbl_keys(packer_plugins)]]
 	return "Happy Coding"
 end
 

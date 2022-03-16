@@ -20,6 +20,7 @@ require "user.alpha"
 require "user.whichkey"
 require "user.autocommands"
 require "user.autosave"
+require "user.todo"
 
 if vim.g["neovide"] then
   require "user.neovide"

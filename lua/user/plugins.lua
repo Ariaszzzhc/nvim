@@ -88,6 +88,7 @@ return packer.startup(function(use)
   -- Telescope
   use "nvim-telescope/telescope.nvim"
   use "nvim-telescope/telescope-fzy-native.nvim" -- telescope native plugin
+  use "folke/todo-comments.nvim"
 
   -- Treesitter
   use {

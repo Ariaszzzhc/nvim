@@ -68,3 +68,9 @@ local python = Terminal:new({ cmd = "python", hidden = true })
 function _PYTHON_TOGGLE()
 	python:toggle()
 end
+
+local btop = Terminal:new({ cmd = "btop", hidden = true})
+
+function _BTOP_TOGGLE()
+  btop:toggle()
+end

@@ -20,6 +20,5 @@ local colorscheme = function(theme)
 end
 
 colorscheme()
-print(vim.g["mirana_theme"])
 
 return colorscheme
