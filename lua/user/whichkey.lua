@@ -97,6 +97,7 @@ local mappings = {
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 
   ["C"] = { "<cmd>Telescope themes <CR>", "Change Theme" },
+  ["z"] = { "<cmd>lua _ZEN_TOGGLE()<cr>", "Zen Mode"},
 
   p = {
     name = "Packer",
