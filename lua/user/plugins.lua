@@ -91,6 +91,7 @@ return packer.startup(function(use)
   use "nvim-telescope/telescope.nvim"
   use "nvim-telescope/telescope-fzy-native.nvim" -- telescope native plugin
   use "folke/todo-comments.nvim"
+  use "nvim-telescope/telescope-ui-select.nvim"
 
   -- Treesitter
   use {
@@ -112,7 +113,7 @@ return packer.startup(function(use)
   use "mfussenegger/nvim-dap"
   use "nvim-telescope/telescope-dap.nvim"
   use "theHamsta/nvim-dap-virtual-text"
-  use "Pocco81/DAPInstall.nvim"
+  use "rcarriga/nvim-dap-ui"
 
   -- Editorconfig
   use "gpanders/editorconfig.nvim"

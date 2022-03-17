@@ -413,9 +413,17 @@ feline.setup({
       "dashboard",
       "alpha",
       "Outline",
+      "dapui_repl",
+      "dapui_stacks",
+      "dapui_scopes",
+      "dapui_breakpoints",
+      "dapui_controls",
+      "dapui_hover",
+      "dapui_watches",
     },
     buftypes = {
       "terminal",
+      "prompt",
     },
   },
 })
