@@ -4,7 +4,7 @@ local function reload_theme(theme)
   local reload_plugin = require("util.reload_plugin")
 
   if theme == nil or theme == "" then
-    theme = vim.g["mirana_theme"]
+    theme = vim.g["elden_theme"]
   end
 
   if not pcall(require, "hl_themes." .. theme) then
@@ -12,7 +12,7 @@ local function reload_theme(theme)
     return false
   end
 
-  vim.g["mirana_theme"] = theme
+  vim.g["elden_theme"] = theme
 
   local colors = require("user.colorscheme")
   colors(theme)

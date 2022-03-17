@@ -4,7 +4,7 @@ local colorscheme = function(theme)
     theme = "gruvchad"
   end
 
-  vim.g["mirana_theme"] = theme
+  vim.g["elden_theme"] = theme
 
   local status_ok, base16 = pcall(require, "base16")
 

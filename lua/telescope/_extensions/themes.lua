@@ -1,6 +1,6 @@
 -- This file can be loaded as a telescope extension
 -- Custom theme picker
--- uses mirana_theme global variable
+-- uses elden_theme global variable
 -- Most of the code is copied from telescope colorscheme plugin, mostly for preview creation
 local function theme_switcher(opts)
   local pickers, finders, previewers, actions, action_state, utils, conf
@@ -23,7 +23,7 @@ local function theme_switcher(opts)
   local themes = list_theme()
   if next(themes) ~= nil then
     -- save this to use it for later to restore if theme not changed
-    local current_theme = vim.g["mirana_theme"]
+    local current_theme = vim.g["elden_theme"]
     local new_theme = ""
     local change = false
 
@@ -70,7 +70,7 @@ local function theme_switcher(opts)
     end
 
     local picker = pickers.new {
-      prompt_title = "Set Mirana color",
+      prompt_title = "Set Elden theme",
       finder = finders.new_table(themes),
       previewer = previewer,
       sorter = conf.generic_sorter(opts),
@@ -100,7 +100,7 @@ local function theme_switcher(opts)
 
       reload_theme(final_theme)
       final_theme = current_theme
-      vim.g["mirana_theme"] = final_theme
+      vim.g["elden_theme"] = final_theme
     end
     -- launch the telescope picker
     picker:find()
