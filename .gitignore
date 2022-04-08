@@ -39,5 +39,7 @@ luac.out
 *.x86_64
 *.hex
 
+.vscode
+
 
 plugin/packer_compiled.lua

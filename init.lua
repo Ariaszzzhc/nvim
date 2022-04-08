@@ -1,31 +1,21 @@
-require "user.options"
-require "user.keymaps"
-require "user.plugins"
-require "user.colorscheme"
-require "user.cmp"
-require "user.lsp"
-require "user.telescope"
-require "user.treesitter"
-require "user.autopairs"
-require "user.comment"
-require "user.gitsigns"
-require "user.nvim-tree"
-require "user.bufferline"
-require "user.statusline"
-require "user.toggleterm"
-require "user.project"
-require "user.impatient"
-require "user.indentline"
-require "user.alpha"
-require "user.whichkey"
-require "user.autocommands"
-require "user.autosave"
-require "user.todo"
-require "user.spell"
-require "user.zen"
-require "user.dap"
-require "user.cosmic-ui"
+local present, impatient = pcall(require, "impatient")
 
-if vim.g["neovide"] then
-  require "user.neovide"
+if present then
+   impatient.enable_profile()
 end
+
+local core_modules = {
+   "core.options",
+   "core.autocmds",
+   "core.mappings",
+}
+
+for _, module in ipairs(core_modules) do
+   local ok, err = pcall(require, module)
+   if not ok then
+      error("Error loading " .. module .. "\n\n" .. err)
+   end
+end
+
+-- non plugin mappings
+require("core.mappings").misc()
