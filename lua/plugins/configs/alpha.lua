@@ -1,6 +1,6 @@
 local present, alpha = pcall(require, "alpha")
 if not present then
-	return
+  return
 end
 
 local function button(sc, txt, keybind)
@@ -13,7 +13,7 @@ local function button(sc, txt, keybind)
     cursor = 5,
     width = 36,
     align_shortcut = "right",
-    hl = "AlphaButtons"
+    hl = "Keyword",
   }
 
   if keybind then
@@ -24,7 +24,7 @@ local function button(sc, txt, keybind)
       {
         noremap = true,
         silent = true,
-      }
+      },
     }
   end
 
@@ -56,44 +56,43 @@ local header = {
   val = ascii,
   opts = {
     position = "center",
-    hl = "AlphaHeader"
-  }
+    hl = "AlphaHeader",
+  },
 }
 
 local buttons = {
-   type = "group",
-   val = {
-     button("SPC f f", "  Find File  ", ":Telescope find_files<CR>"),
-      button("SPC f n", "  New file", ":ene <BAR> startinsert <CR>"),
-      button("SPC f o", "  Recent File  ", ":Telescope oldfiles<CR>"),
-button("SPC p f", "  Find project", ":Telescope projects <CR>"),
-      button("SPC f w", "  Find Word  ", ":Telescope live_grep<CR>"),
-      button("SPC e s", "  Settings", ":e $MYVIMRC | :cd %:p:h <CR>"),
-   },
-   opts = {
-      spacing = 1,
-   },
+  type = "group",
+  val = {
+    button("SPC f f", "  Find File  ", ":Telescope find_files<CR>"),
+    button("SPC f n", "  New file", ":ene <BAR> startinsert <CR>"),
+    button("SPC f o", "  Recent File  ", ":Telescope oldfiles<CR>"),
+    button("SPC p f", "  Find project", ":Telescope projects <CR>"),
+    button("SPC f w", "  Find Word  ", ":Telescope live_grep<CR>"),
+    button("SPC e s", "  Settings", ":e $MYVIMRC | :cd %:p:h <CR>"),
+  },
+  opts = {
+    spacing = 1,
+  },
 }
 
 local function footer()
--- NOTE: requires the fortune-mod package to work
-	-- local handle = io.popen("fortune")
-	-- local fortune = handle:read("*a")
-	-- handle:close()
-	-- return fortune
+  -- NOTE: requires the fortune-mod package to work
+  -- local handle = io.popen("fortune")
+  -- local fortune = handle:read("*a")
+  -- handle:close()
+  -- return fortune
   -- local total_plugins = vim.cmd [[lua vim.tbl_keys(packer_plugins)]]
-	return "Happy Coding"
+  return "Happy Coding"
 end
 
 local footers = {
-  type="text",
+  type = "text",
   val = footer(),
   opts = {
     position = "center",
     hl = "Type",
-  }
+  },
 }
-
 
 local M = {}
 
@@ -102,11 +101,11 @@ M.setup = function()
     layout = {
       { type = "padding", val = 9 },
       header,
-    { type = "padding", val = 2},
+      { type = "padding", val = 2 },
       buttons,
       footers,
     },
-    opts = {}
+    opts = {},
   }
 end
 

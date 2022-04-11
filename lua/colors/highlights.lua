@@ -45,9 +45,9 @@ end
 
 -- Comments
 if ui.italic_comments then
-   fg("Comment", grey_fg .. " gui=italic")
+  fg("Comment", grey_fg .. " gui=italic")
 else
-   fg("Comment", grey_fg)
+  fg("Comment", grey_fg)
 end
 
 -- Disable cursor line
@@ -158,7 +158,7 @@ local section_title_colors = {
   orange,
 }
 for i, color in ipairs(section_title_colors) do
-   vim.cmd("highlight CheatsheetTitle" .. i .. " guibg = " .. color .. " guifg=" .. black)
+  vim.cmd("highlight CheatsheetTitle" .. i .. " guibg = " .. color .. " guifg=" .. black)
 end
 
 -- Disable some highlight in nvim tree if transparency enabled

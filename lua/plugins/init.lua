@@ -22,7 +22,7 @@ local plugins = {
       require("plugins.configs.others").comment()
     end,
   }, -- Easily comment stuff
-  { "kyazdani42/nvim-web-devicons" },
+  { "kyazdani42/nvim-web-devicons", after = "nvim-base16.lua" },
   {
     "kyazdani42/nvim-tree.lua",
     after = "nvim-web-devicons",
@@ -40,7 +40,7 @@ local plugins = {
   },
   { "moll/vim-bbye" },
   {
-    "nvim-lualine/lualine.nvim",
+    "feline-nvim/feline.nvim",
     after = "nvim-web-devicons",
     config = function()
       require("plugins.configs.statusline").setup()
@@ -68,12 +68,6 @@ local plugins = {
     end,
   },
   { "antoinemadec/FixCursorHold.nvim" }, -- This is needed to fix lsp doc highlight
-  {
-    "folke/which-key.nvim",
-    config = function()
-      require("plugins.configs.whichkey").setup()
-    end,
-  },
 
   {
     "NvChad/nvim-colorizer.lua",
@@ -144,10 +138,18 @@ local plugins = {
   },
   { "nvim-telescope/telescope-ui-select.nvim" },
 
+  {
+    "NvChad/nvim-base16.lua",
+    after = "packer.nvim",
+    config = function()
+      require("colors").init()
+    end,
+  },
+
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
-    event = { "BufRead", "BufNewFile" },
+    -- event = { "BufRead", "BufNewFile" },
     run = ":TSUpdate",
   },
   { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" },
@@ -175,11 +177,11 @@ local plugins = {
     end,
   },
 
-  -- Debug Adapter Protocol
-  { "mfussenegger/nvim-dap" },
-  { "nvim-telescope/telescope-dap.nvim" },
-  { "theHamsta/nvim-dap-virtual-text" },
-  { "rcarriga/nvim-dap-ui" },
+  -- -- Debug Adapter Protocol
+  -- { "mfussenegger/nvim-dap" },
+  -- { "nvim-telescope/telescope-dap.nvim" },
+  -- { "theHamsta/nvim-dap-virtual-text" },
+  -- { "rcarriga/nvim-dap-ui" },
 
   -- Editorconfig
   { "gpanders/editorconfig.nvim" },
