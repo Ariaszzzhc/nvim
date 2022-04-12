@@ -142,8 +142,6 @@ M.setup = function()
   telescope.setup(opts)
 
   telescope.load_extension "fzy_native"
-  -- telescope.load_extension("themes")
-  telescope.load_extension "dap"
   telescope.load_extension "ui-select"
   telescope.load_extension "projects"
 end
